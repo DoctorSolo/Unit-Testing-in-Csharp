@@ -6,7 +6,7 @@ namespace UnitTexting.TestCalculator
     public class UnitTest1
     {
 
-        //Test The Rate Calculatio
+        #region Test The Rate Calculatio //////////////////////////////
         public static IEnumerable<object[]> CorrectRates => new List<object[]>
         {
             new object[] { 
@@ -31,7 +31,10 @@ namespace UnitTexting.TestCalculator
             //Assert
             Assert.Equal(ExpectedReturn, RateInTwelveMonths);
         }
-    
+        #endregion
+
+
+        #region Test The Calculate Simple Interest ////////////
         [Theory]
         [InlineData(100000, 0.11, 12, 132000)]
         [InlineData(100000, 0.13, 12, 156000)]
@@ -43,8 +46,10 @@ namespace UnitTexting.TestCalculator
             //Assert
             Assert.Equal(Expectative, J);
         }
-    
-        
+        #endregion
+
+
+        #region Test the calculate Compound Interest //////////
         [Theory]
         [InlineData(100000, 0.11, 12, 249845.06)]
         public void CalculateCompoundInterestTest(decimal CashValue, decimal Rate, sbyte T, decimal Expectative)
@@ -55,7 +60,7 @@ namespace UnitTexting.TestCalculator
             //Assert
             Assert.Equal(Expectative, JC);
         }
-    
-    
+        #endregion
+
     }
 }
